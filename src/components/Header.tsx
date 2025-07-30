@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Search, ShoppingCart, User, Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const sports = [
@@ -19,8 +20,8 @@ const Header = () => {
             <span className="text-muted-foreground">Sign Up</span>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm">Get a Free Quote</Button>
-            <Button variant="cta" size="sm">Request a Free Custom Uniform Design</Button>
+            <Link to="/quote"><Button variant="outline" size="sm">Get a Free Quote</Button></Link>
+            <Link to="/request-design"><Button variant="cta" size="sm">Request a Free Custom Uniform Design</Button></Link>
             <Button variant="ghost" size="sm">
               <ShoppingCart className="w-4 h-4" />
               Cart
