@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Link } from "react-router-dom";
 
 const CallToAction = () => {
   const sports = [
@@ -60,12 +61,16 @@ const CallToAction = () => {
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-background">
-            Get a Free Quote
-          </Button>
-          <Button variant="cta" size="lg">
-            Request a Free Custom Uniform Design
-          </Button>
+          <Link to="/quote">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-background">
+              Get a Free Quote
+            </Button>
+          </Link>
+          <Link to="/request-design">
+            <Button variant="cta" size="lg" className="w-full sm:w-auto">
+              Request a Free Custom Uniform Design
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -13,28 +13,32 @@ const Header = () => {
     <header className="bg-background border-b border-border">
       <div className="container mx-auto px-4">
         {/* Top bar */}
-        <div className="flex items-center justify-between py-2 text-sm">
+        <div className="hidden md:flex items-center justify-between py-2 text-sm">
           <div className="flex items-center gap-4">
-            <span className="text-muted-foreground">Contact Us</span>
-            <span className="text-muted-foreground">Login</span>
-            <span className="text-muted-foreground">Sign Up</span>
+            <span className="text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Contact Us</span>
+            <span className="text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Login</span>
+            <span className="text-muted-foreground hover:text-foreground cursor-pointer transition-colors">Sign Up</span>
           </div>
-          <div className="flex items-center gap-4">
-            <Link to="/quote"><Button variant="outline" size="sm">Get a Free Quote</Button></Link>
-            <Link to="/request-design"><Button variant="cta" size="sm">Request a Free Custom Uniform Design</Button></Link>
-            <Button variant="ghost" size="sm">
-              <ShoppingCart className="w-4 h-4" />
-              Cart
-            </Button>
+          <div className="flex items-center gap-2 lg:gap-4">
+            <Link to="/quote"><Button variant="outline" size="sm" className="hidden lg:flex">Get a Free Quote</Button></Link>
+            <Link to="/request-design"><Button variant="cta" size="sm" className="text-xs lg:text-sm px-2 lg:px-4">Request Free Design</Button></Link>
+            <Link to="/checkout">
+              <Button variant="ghost" size="sm">
+                <ShoppingCart className="w-4 h-4" />
+                <span className="hidden lg:inline ml-1">Cart</span>
+              </Button>
+            </Link>
           </div>
         </div>
 
         {/* Main header */}
         <div className="flex items-center justify-between py-4">
-          <div className="flex items-center gap-8">
-            <h1 className="text-3xl font-black text-primary">
-              GAME<span className="text-foreground">BREAKER</span>
-            </h1>
+          <div className="flex items-center gap-4 lg:gap-8">
+            <Link to="/">
+              <h1 className="text-2xl lg:text-3xl font-black text-primary cursor-pointer hover:opacity-80 transition-opacity">
+                GAME<span className="text-foreground">BREAKER</span>
+              </h1>
+            </Link>
             
             <div className="hidden lg:flex items-center gap-1 max-w-md">
               <div className="relative flex-1">
@@ -57,16 +61,22 @@ const Header = () => {
 
         {/* Navigation */}
         <nav className="hidden lg:flex items-center gap-1 py-2 overflow-x-auto">
-          {sports.map((sport, index) => (
-            <Button 
-              key={index} 
-              variant="ghost" 
-              size="sm" 
-              className="whitespace-nowrap hover:bg-primary hover:text-primary-foreground"
-            >
-              {sport}
-            </Button>
-          ))}
+          {sports.map((sport, index) => {
+            const sportSlug = sport.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+            const isCollectionLink = !["Custom Apparel", "CPS Tracking Apparel"].includes(sport);
+            
+            return (
+              <Link key={index} to={isCollectionLink ? `/collection/${sportSlug}` : "/products"}>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="whitespace-nowrap hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
+                  {sport}
+                </Button>
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </header>

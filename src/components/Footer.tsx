@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="bg-gamebreaker-dark text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-black text-primary mb-4">
@@ -34,11 +35,11 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-white/80">
-              <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Size Charts</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Design Gallery</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">FAQ</a></li>
+              <li><Link to="/products" className="hover:text-primary transition-colors">All Products</Link></li>
+              <li><Link to="/customize" className="hover:text-primary transition-colors">Custom Design</Link></li>
+              <li><Link to="/quote" className="hover:text-primary transition-colors">Get Quote</Link></li>
+              <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link to="/checkout" className="hover:text-primary transition-colors">Cart</Link></li>
             </ul>
           </div>
 
@@ -46,11 +47,11 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Sports</h4>
             <ul className="space-y-2 text-white/80">
-              <li><a href="#" className="hover:text-primary transition-colors">Football</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Basketball</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Baseball</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Soccer</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Hockey</a></li>
+              <li><Link to="/collection/football" className="hover:text-primary transition-colors">Football</Link></li>
+              <li><Link to="/collection/basketball" className="hover:text-primary transition-colors">Basketball</Link></li>
+              <li><Link to="/collection/baseball" className="hover:text-primary transition-colors">Baseball</Link></li>
+              <li><Link to="/collection/soccer" className="hover:text-primary transition-colors">Soccer</Link></li>
+              <li><Link to="/collection/hockey" className="hover:text-primary transition-colors">Hockey</Link></li>
             </ul>
           </div>
 

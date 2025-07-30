@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -205,14 +206,18 @@ const Products = () => {
                       <span className="text-lg text-muted-foreground line-through">{product.originalPrice}</span>
                     </div>
                     
-                    <div className="flex gap-2">
-                      <Button variant="gamebreaker" className="flex-1">
-                        Customize Now
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        <ShoppingCart className="w-4 h-4" />
-                      </Button>
-                    </div>
+                <div className="flex gap-2">
+                  <Link to="/customize" className="flex-1">
+                    <Button variant="gamebreaker" className="w-full">
+                      Customize Now
+                    </Button>
+                  </Link>
+                  <Link to="/checkout">
+                    <Button variant="outline" size="sm">
+                      <ShoppingCart className="w-4 h-4" />
+                    </Button>
+                  </Link>
+                </div>
                   </div>
                 </div>
               ))}

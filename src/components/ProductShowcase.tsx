@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import jerseyFootball from "@/assets/jersey-football.jpg";
 import jerseyBasketball from "@/assets/jersey-basketball.jpg";
 import jerseySoccer from "@/assets/jersey-soccer.jpg";
@@ -93,13 +94,15 @@ const ProductShowcase = () => {
                 >
                   {product.badge}
                 </Badge>
-                <Button 
-                  variant="gamebreaker" 
-                  size="sm" 
-                  className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                  <ShoppingCart className="w-4 h-4" />
-                </Button>
+                <Link to="/checkout">
+                  <Button 
+                    variant="gamebreaker" 
+                    size="sm" 
+                    className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <ShoppingCart className="w-4 h-4" />
+                  </Button>
+                </Link>
               </div>
 
               {/* Product Info */}
@@ -135,12 +138,16 @@ const ProductShowcase = () => {
 
                 {/* Buttons */}
                 <div className="flex gap-2">
-                  <Button variant="gamebreaker" className="flex-1">
-                    Customize Now
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <ShoppingCart className="w-4 h-4" />
-                  </Button>
+                  <Link to="/customize" className="flex-1">
+                    <Button variant="gamebreaker" className="w-full">
+                      Customize Now
+                    </Button>
+                  </Link>
+                  <Link to="/checkout">
+                    <Button variant="outline" size="sm">
+                      <ShoppingCart className="w-4 h-4" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -148,9 +155,11 @@ const ProductShowcase = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="cta" size="lg">
-            View All Products
-          </Button>
+          <Link to="/products">
+            <Button variant="cta" size="lg">
+              View All Products
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

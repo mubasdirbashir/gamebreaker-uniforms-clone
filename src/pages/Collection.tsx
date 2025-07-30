@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -169,12 +169,16 @@ const Collection = () => {
                 </div>
                 
                 <div className="flex gap-2">
-                  <Button variant="gamebreaker" className="flex-1">
-                    Customize Now
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <ShoppingCart className="w-4 h-4" />
-                  </Button>
+                  <Link to="/customize" className="flex-1">
+                    <Button variant="gamebreaker" className="w-full">
+                      Customize Now
+                    </Button>
+                  </Link>
+                  <Link to="/checkout">
+                    <Button variant="outline" size="sm">
+                      <ShoppingCart className="w-4 h-4" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -189,13 +193,17 @@ const Collection = () => {
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             Get started with our free design consultation and see your team's vision come to life
           </p>
-          <div className="flex gap-4 justify-center">
-            <Button variant="cta" size="lg">
-              Request Free Design
-            </Button>
-            <Button variant="outline" size="lg">
-              Get Quote
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/request-design">
+              <Button variant="cta" size="lg">
+                Request Free Design
+              </Button>
+            </Link>
+            <Link to="/quote">
+              <Button variant="outline" size="lg">
+                Get Quote
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import jerseyFootball from "@/assets/jersey-football.jpg";
 import jerseyBasketball from "@/assets/jersey-basketball.jpg";
 import jerseySoccer from "@/assets/jersey-soccer.jpg";
@@ -55,9 +56,11 @@ const MovingProducts = () => {
             </h2>
             <p className="text-white/80">Popular products flying off our shelves</p>
           </div>
-          <Button variant="outline" className="border-white text-white hover:bg-white hover:text-background">
-            View All <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
+          <Link to="/products">
+            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-background">
+              View All <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -117,9 +120,11 @@ const MovingProducts = () => {
                 {/* Price and Button */}
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-bold text-primary">{product.price}</span>
-                  <Button variant="gamebreaker" size="sm">
-                    Add to Cart
-                  </Button>
+                  <Link to="/checkout">
+                    <Button variant="gamebreaker" size="sm">
+                      Add to Cart
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -130,9 +135,11 @@ const MovingProducts = () => {
       {/* Bottom CTA */}
       <div className="container mx-auto px-4 mt-8 text-center">
         <p className="text-white/80 mb-4">Don't see what you're looking for?</p>
-        <Button variant="cta" size="lg">
-          Request Custom Design
-        </Button>
+        <Link to="/request-design">
+          <Button variant="cta" size="lg">
+            Request Custom Design
+          </Button>
+        </Link>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import sportsCollageHero from "@/assets/sports-collage-hero.jpg";
 
 const Hero = () => {
@@ -33,12 +34,16 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="cta" size="lg" className="text-lg px-8 py-4">
-            Request a Free Custom Uniform Design
-          </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-background">
-            Get a Free Quote
-          </Button>
+          <Link to="/request-design">
+            <Button variant="cta" size="lg" className="text-lg px-8 py-4">
+              Request a Free Custom Uniform Design
+            </Button>
+          </Link>
+          <Link to="/quote">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-background">
+              Get a Free Quote
+            </Button>
+          </Link>
         </div>
       </div>
 
